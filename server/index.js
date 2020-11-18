@@ -13,6 +13,10 @@ const io = socketio(server); //Instance of socketio
 io.on('connection', (socket) => {
     console.log('A new connection');
 
+    socket.on('join', ({ name, room}) => {
+        console.log(name,room);
+    });
+
     socket.on('disconnect', () => {
         console.log('User had left');
     })
